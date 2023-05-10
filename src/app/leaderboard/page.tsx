@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { getNumberWithOrdinal } from '@/utils'
 import { getLeaderboard } from '../actions'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Leaderboard () {
   const leaderboard = await getLeaderboard(20)
   return (
