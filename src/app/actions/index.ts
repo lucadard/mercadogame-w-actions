@@ -11,7 +11,7 @@ const bannedCategoriesId = ['MLA1743', 'MLA1574', 'MLA1459', 'MLA1540']
 export async function getCategories (): Promise<Category[]> {
   const res = await fetch('https://api.mercadolibre.com/sites/MLA/categories',
     {
-      next: { tags: ['categories'], revalidate: 60 * 5 },
+      next: { tags: ['categories'] },
       headers: { Authorization: `Bearer ${API_KEY}` }
     })
   if (!res.ok) {
@@ -79,10 +79,6 @@ export async function resetCategories () {
   revalidateTag('categories')
 }
 
-export async function updateLeaderboard () {
-  revalidateTag('leaderboard')
-}
-
 export async function getRoundData (id: string): Promise<{ products: Product[], questions: Question[] }> {
   const ids = await getProductsId(id)
   const products = await getProductsWithDetails(ids)
@@ -94,7 +90,6 @@ export async function sendScore (name: string, score: number) {
   if (!name || score === undefined) return false
   try {
     await sql`INSERT INTO SCORES (NAME,SCORE) VALUES (${name}, ${score})`
-    void updateLeaderboard()
     return true
   } catch (error) {
     return false
