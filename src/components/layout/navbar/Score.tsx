@@ -1,18 +1,19 @@
 'use client'
+import { useGame } from '@/store/zustand'
 import React from 'react'
 // import { useGame } from '../context/GameContext'
 
 type Props = {}
 
 const Score = (props: Props) => {
-  // const { state } = useGame()
+  const { round, score } = useGame()
   return (
     <div>
       <p>
-        {/* Ronda: <span>{state.round}</span> */}
+        Ronda: <span>{round}</span>
       </p>
       <p>
-        {/* Puntuación: <span>{state.score.total}</span> */}
+        Puntuación: <span>{score}</span>
       </p>
     </div>
   )

@@ -1,27 +1,18 @@
 'use client'
 import { Product } from '@/types'
 import ProductCard from './Card'
-import { useStore } from '@/store/zustand'
+import { useGame } from '@/store/zustand'
 
-export default function Wrapper () {
-  const { products } = useStore()
-  if (!products.length) return null
+export default function ProductsSection () {
+  const { products } = useGame()
 
   return (
-    <>
-      <ProductsSection products={products} />
-    </>
-  )
-}
-
-function ProductsSection ({ products }: { products: Product[] }) {
-  return (
-    <section className='mx-auto flex flex-col gap-2'>
-      <h3 className='mx-auto mb-7 w-full max-w-[600px] pl-3 font-medium md:mb-4'>
+    <section className='mx-auto flex w-full flex-col'>
+      <h3 className='mx-auto mb-2 w-full max-w-[600px] pl-3'>
         3. Analiza y elegi tu respuesta:
       </h3>
       <div className='mx-auto grid min-h-[250px] auto-cols-min grid-cols-2 gap-4 lg:grid-flow-col'>
-        {products.map(({ id, data }: Product, index) => {
+        {products?.map(({ id, data }: Product, index) => {
           return (
             <ProductCard
               key={id}

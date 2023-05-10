@@ -1,6 +1,8 @@
+'use client'
 import React from 'react'
-// import { useModal } from '../../hooks/useModal'
 import Button from '@/components/Button'
+import Link from 'next/link'
+import { useGame } from '@/store/zustand'
 
 const Popup = () => {
   return (
@@ -27,22 +29,26 @@ const Popup = () => {
 }
 
 const Footer = () => {
-  // const setModal = useModal((state) => state.setModal)
+  const { setModal } = useGame()
   return (
     <>
-      <p
-        className='mb-2 cursor-pointer text-center text-sm text-gray-500 underline hover:text-gray-400'
-        // onClick={() => setModal(<Popup />)}
-      >
-        Como funciona?
-      </p>
-      <section className='flex flex-col items-center justify-center gap-2 border-t-[1px] border-gray-300 bg-gray-400/10 py-6'>
-        <div>
-          <span className='mr-2'>hecho por</span>
-          <a href='https://github.com/lucadard' target='_blank' rel='noreferrer'>
-            <Button style='dashed'>lucadard</Button>
-          </a>
-        </div>
+      <div className='flex justify-center'>
+        <Link
+          href='/'
+          onClick={e => {
+            e.preventDefault()
+            setModal(<Popup />)
+          }}
+          className='mb-2 cursor-pointer text-center text-sm text-gray-500 underline hover:text-gray-400'
+        >
+          Como funciona?
+        </Link>
+      </div>
+      <section className='gap mx-auto flex items-center justify-center border-t-[1px] border-gray-300 bg-gray-400/10 py-6'>
+        <span className='mr-2'>hecho por</span>
+        <a href='https://github.com/lucadard' target='_blank' rel='noreferrer'>
+          <Button style='dashed'>lucadard</Button>
+        </a>
       </section>
     </>
   )

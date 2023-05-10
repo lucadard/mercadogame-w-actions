@@ -4,14 +4,16 @@ export type Category = {
 }
 
 export type Product = {
-  title: string
   id: string
-  permalink: string
-  thumbnail?: string
+  data: {
+    title: string
+    permalink: string
+    thumbnail: string
+  } | undefined
 }
 
 export type Question = {
-  id: number
+  id: string
   text: string
   item_id: string
 }
@@ -19,5 +21,4 @@ export type Question = {
 export type Score = {
   name: string
   score: number
-  createdAt: string
 }

@@ -2,6 +2,7 @@ import Navbar from '@/components/layout/navbar/Navbar'
 import './globals.css'
 import { Roboto } from 'next/font/google'
 import Footer from '@/components/layout/footer/Footer'
+import Modal from '@/components/layout/Modal'
 
 const roboto = Roboto({ weight: ['400'], subsets: ['latin'] })
 
@@ -16,12 +17,12 @@ export default function RootLayout ({
 }) {
   return (
     <html lang='en'>
-      <body
-        style={roboto.style}
-        className='flex min-h-screen flex-col overflow-x-hidden'
-      >
-        <Navbar />
-        {children}
+      <body>
+        <Modal />
+        <div className='flex min-h-screen flex-col'>
+          <Navbar />
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

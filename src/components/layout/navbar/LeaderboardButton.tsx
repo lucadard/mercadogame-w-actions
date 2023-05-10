@@ -3,9 +3,7 @@ import Button from '@/components/Button'
 import React from 'react'
 import { usePathname } from 'next/navigation'
 
-type Props = {}
-
-const LeaderboardButton = (props: Props) => {
+const LeaderboardButton = () => {
   const path = usePathname()
   return (
     <Button

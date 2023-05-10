@@ -38,12 +38,11 @@ const Button = ({
 }: Props) => {
   return (
     <button
-      className={`h-min rounded-lg px-3 py-2 
+      className={`min-h-[40px] w-full whitespace-nowrap rounded-lg px-3 py-2 
       ${styles[style]} 
       ${sizeStyles[size]} 
       ${active ? activeStyles[style] : ''}
-      ${
-        disabled
+      ${disabled
           ? 'pointer-events-none cursor-not-allowed opacity-50'
           : 'cursor-pointer'
       }`}
