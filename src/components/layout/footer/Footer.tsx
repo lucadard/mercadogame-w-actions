@@ -9,7 +9,7 @@ const Popup = () => {
     <div className='flex w-full flex-col gap-3 text-center'>
       <h3 className='text-2xl'>Como jugar:</h3>
       <p>
-        El juego se compone de 10 rondas en las que deberás deducir, o en
+        El juego se compone de 5 rondas en las que deberás deducir, o en
         algunos casos adivinar, a qué producto se refiere la pregunta
         presentada, obteniendo 3 puntos en caso de responder correctamente y 0
         si la respuesta es incorrecta.
